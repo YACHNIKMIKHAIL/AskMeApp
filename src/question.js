@@ -15,6 +15,17 @@ export class Question {
                 return question
             })
             .then(addToLC)
+            .then(Question.renderList)
+    }
+
+    static renderList() {
+        const questions = getFromLC()
+        const html = questions.length
+            ? questions.map(questionToCars).join('')
+            : `<div class="mui--text-headline">No actual questions</div>`
+
+        const list = document.getElementById('list')
+        list.innerHTML = html
     }
 }
 
@@ -26,4 +37,8 @@ function addToLC(question) {
 
 function getFromLC() {
     return JSON.parse(localStorage.getItem('question') || '[]')
+}
+
+function questionToCars(question) {
+    return '123'
 }
