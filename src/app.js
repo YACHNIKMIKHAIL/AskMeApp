@@ -1,5 +1,6 @@
 import {isValid, sidebarColor} from "./utils";
 import './style.css'
+import {Question} from "./question";
 
 const form = document.getElementById('form')
 const input = form.querySelector('#questionInput')
@@ -21,12 +22,16 @@ function submitHandler(event) {
         button.disabled = true
         sidebarColor(button.disabled)
         //async req to serv
-        console.log('Q', question)
-        input.value = ''
-        input.className = ''
-        setTimeout(() => {
-            button.disabled = false
-            sidebarColor(button.disabled)
-        }, 3000)
+        Question.create(question)
+            .then(() => {
+                input.value = ''
+                input.className = ''
+                setTimeout(() => {
+                    button.disabled = false
+                    sidebarColor(button.disabled)
+                }, 3000)
+            })
+
+
     }
 }
