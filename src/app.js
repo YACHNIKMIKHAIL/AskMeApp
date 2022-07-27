@@ -1,12 +1,15 @@
-import {isValid} from "./utils";
+import {isValid, sidebarColor} from "./utils";
 import './style.css'
 
 const form = document.getElementById('form')
 const input = form.querySelector('#questionInput')
 const button = form.querySelector('#questionSubmit')
-const sidebar = document.getElementById('sidebar')
 
 form.addEventListener('submit', submitHandler)
+input.addEventListener('input', () => {
+    button.disabled = !isValid(input.value)
+    sidebarColor(!isValid(input.value))
+})
 
 function submitHandler(event) {
     event.preventDefault()
