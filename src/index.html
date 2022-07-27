@@ -28,10 +28,12 @@
             <br>
             <form class="mui-form" id="form">
                 <div class="mui-textfield mui-textfield--float-label">
-                    <input type="text" id="questionInput">
+                    <input type="text" id="questionInput"
+                           required minlength="10" maxlength="80">
                     <label for="questionInput">What do you want to ask ?</label>
                 </div>
-                <button type="submit" class="mui-btn mui-btn--raised"
+                <button type="submit" class="mui-btn mui-btn--raised mui-btn--accent"
+                        id="questionSubmit"
                         disabled
                 >Ask
                 </button>
