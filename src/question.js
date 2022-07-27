@@ -10,6 +10,20 @@ export class Question {
             }
         })
             .then(res => res.json())
-            .then(res => console.log(res))
+            .then(res => {
+                question.id = res.name
+                return question
+            })
+            .then(addToLC)
     }
+}
+
+function addToLC(question) {
+    const all = getFromLC()
+    all.push(question)
+    localStorage.setItem('question', JSON.stringify(all))
+}
+
+function getFromLC() {
+    return JSON.parse(localStorage.getItem('question') || '[]')
 }
