@@ -40,5 +40,13 @@ function getFromLC() {
 }
 
 function questionToCars(question) {
-    return '123'
+    console.log('questionToCars', question)
+    return `
+    <div class="mui--text-black-54">
+${new Date(question.date).toLocaleDateString()}
+${new Date(question.date).toLocaleTimeString()}
+</div>
+            <div>${question.text}</div>
+            <br>
+`
 }
