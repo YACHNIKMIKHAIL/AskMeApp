@@ -1,6 +1,7 @@
 import {createModal, isValid, sidebarColor} from "./utils";
-import './style.css'
 import {Question} from "./question";
+import {getAuthForm} from "./auth";
+import './style.css'
 
 const form = document.getElementById('form')
 const modalButton = document.getElementById('modal-btn')
@@ -40,5 +41,5 @@ function submitHandler(event) {
 }
 
 function openModal(event) {
-    createModal('Authorization', '<h1>AuthorizationTest</h1>')
+    createModal('Authorization', getAuthForm())
 }

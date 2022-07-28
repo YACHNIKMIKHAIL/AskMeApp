@@ -68,7 +68,7 @@ button {
     border-radius: 10px;
 }
 
-.modal h1 {
+.modal > h1 {
     text-align: center;
 
 }
