@@ -1,6 +1,6 @@
 import {createModal, isValid, sidebarColor} from "./utils";
 import {Question} from "./question";
-import {getAuthForm} from "./auth";
+import {authWithEmailAndPassword, getAuthForm} from "./auth";
 import './style.css'
 
 const form = document.getElementById('form')
@@ -52,5 +52,8 @@ function authFormHandler(event) {
     const email = event.target.querySelector('#email').value
     const password = event.target.querySelector('#password').value
 
-    console.log('email', email, 'password', password)
+    authWithEmailAndPassword(email, password)
+        .then(token=>{
+
+        })
 }

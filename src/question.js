@@ -18,6 +18,14 @@ export class Question {
             .then(Question.renderList)
     }
 
+    static fetch(token) {
+        fetch('https://questions-app-e3de4-default-rtdb.europe-west1.firebasedatabase.app/question.json')
+            .then(res => res.json())
+            .then(questions =>{
+                console.log('questions',questions)
+            })
+    }
+
     static renderList() {
         const questions = getFromLC()
         const html = questions.length

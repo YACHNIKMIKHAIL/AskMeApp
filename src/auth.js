@@ -15,3 +15,16 @@ export function getAuthForm() {
      </form>
     `
 }
+
+export function authWithEmailAndPassword(email, password) {
+    const apiKey = 'AIzaSyAYxgKQN0FsOAbSVoVwXqvorGKsLx2aV0E'
+    return fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
+        method: 'POST',
+        body: JSON.stringify({email, password, returnSecureToken: true}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(data => data.idToken)
+}
