@@ -48,15 +48,19 @@ function openModal(event) {
 
 function authFormHandler(event) {
     event.preventDefault()
-
+    const button = event.target.querySelector('button ')
     const email = event.target.querySelector('#email').value
     const password = event.target.querySelector('#password').value
 
+    button.disabled = true
     authWithEmailAndPassword(email, password)
         .then(Question.fetch)
         .then(renderModalAfterAuth)
+        .then(() => button.disabled = false)
 }
 
 function renderModalAfterAuth(content) {
-    console.log('content', content)
+    typeof content === 'string'
+        ? createModal('Error', content)
+        : createModal('Questions list: ', Question.questionsToHTML(content))
 }

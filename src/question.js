@@ -24,8 +24,16 @@ export class Question {
         }
         return fetch(`https://questions-app-e3de4-default-rtdb.europe-west1.firebasedatabase.app/question.json?auth=${token}`)
             .then(res => res.json())
-            .then(questions => {
-                console.log('questions', questions)
+            .then(res => {
+                if (res.error) {
+                    return `<p class="error">${res.error}</p>`
+                }
+                return res
+                    ? Object.keys(res).map(key => ({
+                        ...res[key],
+                        id: key
+                    }))
+                    : []
             })
     }
 
@@ -37,6 +45,12 @@ export class Question {
 
         const list = document.getElementById('list')
         list.innerHTML = html
+    }
+
+    static questionsToHTML(questions) {
+        return questions.length
+            ? `<ol>${questions.map(q => `<li>${q.text}</li>`).join('')}</ol>`
+            : `<p>You haven't any questions right now</p>`
     }
 }
 
@@ -53,11 +67,11 @@ function getFromLC() {
 function questionToCars(question) {
     console.log('questionToCars', question)
     return `
-    <div class="mui--text-black-54">
-${new Date(question.date).toLocaleDateString()}
-${new Date(question.date).toLocaleTimeString()}
-</div>
-            <div>${question.text}</div>
-            <br>
-`
+            < div class = "mui--text-black-54" >
+                ${new Date(question.date).toLocaleDateString()}
+                ${new Date(question.date).toLocaleTimeString()}
+                < /div>
+        <div>${question.text}</div>
+        <br>
+            `
 }
