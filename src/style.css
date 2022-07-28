@@ -65,4 +65,14 @@ button {
     margin: 100px auto;
     overflow-y: auto;
     background: #fff;
+    border-radius: 10px;
+}
+
+.modal h1 {
+    text-align: center;
+
+}
+
+.modal .modal-content {
+    padding: 1rem;
 }
