@@ -76,3 +76,14 @@ button {
 .modal .modal-content {
     padding: 1rem;
 }
+
+.error {
+    text-align: center;
+    font-size: x-large;
+    color: #ff0080;
+}
+.haventquestions {
+    text-align: center;
+    font-size: large;
+    color: #ff97b6;
+}
