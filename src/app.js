@@ -53,7 +53,10 @@ function authFormHandler(event) {
     const password = event.target.querySelector('#password').value
 
     authWithEmailAndPassword(email, password)
-        .then(token=>{
+        .then(Question.fetch)
+        .then(renderModalAfterAuth)
+}
 
-        })
+function renderModalAfterAuth(content) {
+    console.log('content', content)
 }

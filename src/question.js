@@ -19,10 +19,13 @@ export class Question {
     }
 
     static fetch(token) {
-        fetch('https://questions-app-e3de4-default-rtdb.europe-west1.firebasedatabase.app/question.json')
+        if (!token) {
+            return Promise.resolve(`<p class="error">You haven't token, sorry bro</p>`)
+        }
+        return fetch(`https://questions-app-e3de4-default-rtdb.europe-west1.firebasedatabase.app/question.json?auth=${token}`)
             .then(res => res.json())
-            .then(questions =>{
-                console.log('questions',questions)
+            .then(questions => {
+                console.log('questions', questions)
             })
     }
 
