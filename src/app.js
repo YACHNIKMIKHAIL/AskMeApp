@@ -1,13 +1,15 @@
-import {isValid, sidebarColor} from "./utils";
+import {createModal, isValid, sidebarColor} from "./utils";
 import './style.css'
 import {Question} from "./question";
 
 const form = document.getElementById('form')
+const modalButton = document.getElementById('modal-btn')
 const input = form.querySelector('#questionInput')
 const button = form.querySelector('#questionSubmit')
 
-window.addEventListener('load',Question.renderList)
+window.addEventListener('load', Question.renderList)
 form.addEventListener('submit', submitHandler)
+modalButton.addEventListener('click', openModal)
 input.addEventListener('input', () => {
     button.disabled = !isValid(input.value)
     sidebarColor(!isValid(input.value))
@@ -35,4 +37,8 @@ function submitHandler(event) {
 
 
     }
+}
+
+function openModal(event) {
+    createModal('Authorization', '<h1>AuthorizationTest</h1>')
 }

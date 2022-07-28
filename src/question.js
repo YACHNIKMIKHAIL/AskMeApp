@@ -31,7 +31,7 @@ export class Question {
 
 function addToLC(question) {
     const all = getFromLC()
-    all.push(question)
+    all.unshift(question)
     localStorage.setItem('question', JSON.stringify(all))
 }
 

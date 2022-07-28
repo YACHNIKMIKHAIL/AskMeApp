@@ -52,3 +52,17 @@ button {
 .author {
     font-size: 0.8rem;
 }
+
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.modal {
+    max-width: 600px;
+    max-height: 300px;
+    margin: 100px auto;
+    overflow-y: auto;
+    background: #fff;
+}
