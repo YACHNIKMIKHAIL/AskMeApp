@@ -66,12 +66,18 @@ function getFromLC() {
 
 function questionToCars(question) {
     console.log('questionToCars', question)
-    return `
-            < div class = "mui--text-black-54" >
-                ${new Date(question.date).toLocaleDateString()}
+    return `<div class = "mui--text-black-54">
+            ${new Date(question.date).toLocaleDateString()}
                 ${new Date(question.date).toLocaleTimeString()}
-                < /div>
-        <div>${question.text}</div>
-        <br>
-            `
+        <div>${question.text}</div
+ </div>
+<br>`
+    // `
+    //         < div class = "mui--text-black-54" >
+    //             ${new Date(question.date).toLocaleDateString()}
+    //             ${new Date(question.date).toLocaleTimeString()}
+    //             < /div>
+    //     <div>${question.text}</div>
+    //     <br>
+    //         `
 }
